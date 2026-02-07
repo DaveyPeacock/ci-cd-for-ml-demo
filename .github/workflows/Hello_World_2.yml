@@ -1,0 +1,14 @@
+name: My First Workflow
+
+# This determines what triggers the automation
+on: [push]
+
+jobs:
+  # The name of out job
+  greet-user:
+    # The type of machine the code runs on.
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo "Hello, Github actions are working"
