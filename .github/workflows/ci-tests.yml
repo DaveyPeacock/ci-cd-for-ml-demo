@@ -1,0 +1,27 @@
+name: Run Unit Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-logic:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Pulls your code onto the virtual machine.
+      - name: Checkout code
+        uses: actions/checkout@v4
+    # 2. Installs the specific version of the language you need.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+    # 3. Installs dependencies and runs your test command
+      - name: Install and Test
+        run: |
+          npm install
+          npm test 
+          
